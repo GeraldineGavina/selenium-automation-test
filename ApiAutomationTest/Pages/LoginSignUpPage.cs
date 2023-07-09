@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
+using Newtonsoft.Json;
+using System.IO;
+using SeleniumAutomationTest.Data;
+using SeleniumAutomationTest.Utils;
 
 namespace SeleniumAutomationTest.Pages
 {
@@ -15,6 +19,9 @@ namespace SeleniumAutomationTest.Pages
 
         [FindsBy(How = How.CssSelector, Using = "div[class='signup-form'] h2")]
         private IWebElement newUserSignup;
+        
+        [FindsBy(How = How.CssSelector, Using = "div[class='login-form'] h2")]
+        private IWebElement loginToYourAccount;
 
         [FindsBy(How = How.CssSelector, Using = "input[data-qa='signup-name']")]
         private IWebElement signUpNameInput;
@@ -35,6 +42,10 @@ namespace SeleniumAutomationTest.Pages
         {
             return newUserSignup;
         }
+        public IWebElement GetLoginToYourAccount()
+        {
+            return loginToYourAccount;
+        }
 
         public void FillSignUp(string name, string email)
         {
@@ -46,6 +57,11 @@ namespace SeleniumAutomationTest.Pages
         public EnterAccountInformationPage FillCorrectSignUp(string name, string email)
         {
             FillSignUp(name, email);
+            UserSignUp newUser = new UserSignUp();
+            newUser.email = email;
+            newUser.name = name;
+            string filePath = "..\\..\\..\\Data\\user.json";
+            JSONUtil.WriteObjectToJsonFile(newUser, filePath);
             return new EnterAccountInformationPage(driver);
         }
     }
