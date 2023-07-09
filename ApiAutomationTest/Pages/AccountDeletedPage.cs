@@ -25,12 +25,12 @@ namespace SeleniumAutomationTest.Pages
             this.driver = driver;
         }
 
-        public IWebElement getAccountDeleted()
+        public IWebElement GetAccountDeleted()
         {
             return accountDeleted;
         }
 
-        public HomePage continueButtonClick()
+        public HomePage ContinueButtonClick()
         {
             continueButton.Click();
             return new HomePage(driver);

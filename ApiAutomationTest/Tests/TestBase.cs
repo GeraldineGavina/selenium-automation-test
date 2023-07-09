@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using SeleniumAutomationTest.Utils;
 using NUnit.Framework;
 using OpenQA.Selenium;
+using System.Collections.ObjectModel;
 
 namespace SeleniumAutomationTest.Tests
 {
@@ -27,6 +28,24 @@ namespace SeleniumAutomationTest.Tests
             IWebDriver driver = BrowserManager.DoBrowserSetup();
             TDriver.Value = driver;
             GetDriver().Navigate().GoToUrl(url);
+
+            driver.Manage().Window.Maximize();
+
+            string currentWindowHandle = driver.CurrentWindowHandle;
+            ReadOnlyCollection<string> windowHandles = driver.WindowHandles;
+
+            foreach (string windowHandle in windowHandles)
+            {
+                if (windowHandle != currentWindowHandle)
+                {
+                    
+                    driver.SwitchTo().Window(windowHandle);
+                    driver.Close();
+
+                }
+            }
+            driver.SwitchTo().Window(currentWindowHandle);
+
         }
 
         [TearDown]

@@ -38,7 +38,7 @@ namespace SeleniumAutomationTest.Pages
         [FindsBy(How = How.Id, Using = "optin")]
         private IWebElement specialOfferCheckBox;
 
-        [FindsBy(How = How.Id, Using = "fist_name")]
+        [FindsBy(How = How.CssSelector, Using = "input[data-qa='first_name']")]
         private IWebElement firstNameInput;
 
         [FindsBy(How = How.Id, Using = "last_name")]
@@ -66,10 +66,9 @@ namespace SeleniumAutomationTest.Pages
         private IWebElement zipcodeInput;
 
         [FindsBy(How = How.Id, Using = "mobile_number")]
-        private IWebElement LmobileNumberInput;
+        private IWebElement mobileNumberInput;
 
-        [FindsBy(How = How.Id, Using = "last_name")]
-        private IWebElement LastNameInput;
+
 
         [FindsBy(How = How.CssSelector, Using = "button[data-qa='create-account']")]
         private IWebElement createAccountButton;
@@ -92,7 +91,25 @@ namespace SeleniumAutomationTest.Pages
             passwordInput.SendKeys(password);
             SelectElement days = new SelectElement(daysSelect);
             days.SelectByValue("1");
-            return null;
+            SelectElement months = new SelectElement(monthsSelect);
+            months.SelectByValue("1");
+            SelectElement years = new SelectElement(yearsSelect);
+            years.SelectByValue("2001");
+            newsLetterCheckBox.Click();
+            specialOfferCheckBox.Click();
+            firstNameInput.SendKeys("firstname");
+            lastNameInput.SendKeys("lastname");
+            companyInput.SendKeys("company");
+            address1Input.SendKeys("address1");
+            address1Input.SendKeys("address2");
+            SelectElement country = new SelectElement(countrySelect);
+            country.SelectByValue("Canada");
+            stateInput.SendKeys("state");
+            cityInput.SendKeys("city");
+            zipcodeInput.SendKeys("zipcode");
+            mobileNumberInput.SendKeys("123456789");
+            createAccountButton.Click();
+            return new AccountCreatedPage(driver);
         }
     }
 }

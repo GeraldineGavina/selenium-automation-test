@@ -16,12 +16,15 @@ namespace SeleniumAutomationTest.Utils
             if (name.Equals("Chrome", StringComparison.OrdinalIgnoreCase))
             {
                 //string pathExtension = ConfigurationManager.AppSettings["adBlock"].ToString();
+                string pathExtension = "C:\\Users\\Staff\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2\\Extensions\\gighmmpiobklfepjocnamgkkbiglidom\\5.8.0_0";
                 //Console.WriteLine(">>>>>>>>>>>>>>>>>>>> "+browserName);
                 ChromeOptions chromeOptions = new ChromeOptions();
-                //chromeOptions.AddArgument("load-extension=" + pathExtension);
+                chromeOptions.AddArgument("load-extension=" + pathExtension);
                 /*chromeOptions.AddArgument("--headless");
                 chromeOptions.AddArgument("--silent");*/
                 driver = new ChromeDriver(chromeOptions);
+                Thread.Sleep(1000);
+
             }
             else if (name.Equals("Firefox", StringComparison.OrdinalIgnoreCase))
             {

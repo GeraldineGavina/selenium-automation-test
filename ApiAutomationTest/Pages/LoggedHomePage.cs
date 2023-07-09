@@ -28,18 +28,23 @@ namespace SeleniumAutomationTest.Pages
             this.driver = driver;
         }
 
+        public IWebElement GetUsername()
+        {
+            return username;
+        }
+
         public IWebElement LogoutButton()
         {
             return username;
         }
         
-        public AccountDeletedPage deleteAccountButtonClick()
+        public AccountDeletedPage DeleteAccountButtonClick()
         {
             deleteAccountButton.Click();
             return new AccountDeletedPage(driver);
         }
 
-        public LoginSignUpPage logoutButtonClick()
+        public LoginSignUpPage LogoutButtonClick()
         {
             logoutButton.Click();
             return new LoginSignUpPage(driver);

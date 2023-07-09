@@ -22,6 +22,8 @@ namespace SeleniumAutomationTest.Tests
             VerifyNewUserSignUpIsVisible();
             VerifyThatEnterAccountInformationIsVisible();
             VerifyThatAccountCreatedIsVisible();
+            VerifyThatLoggedInAsUsernameIsVisible();
+            VerifyThatAccountDeletedIsVisibleAndClickContinueButton();
         }
 
 
@@ -54,10 +56,30 @@ namespace SeleniumAutomationTest.Tests
 
         public void VerifyThatAccountCreatedIsVisible()
         {
-            new EnterAccountInformationPage(GetDriver())
-                .FillAccountDetails();
+            string accountCreatedText = new EnterAccountInformationPage(GetDriver())
+                .FillAccountDetails()
+                .GetAccountCreated()
+                .Text;
+            Assert.AreEqual("ACCOUNT CREATED!", accountCreatedText);
+              
+        }
 
-                
+        public void VerifyThatLoggedInAsUsernameIsVisible()
+        {
+            string username = new AccountCreatedPage(GetDriver())
+                .ContinueButtonClick()
+                .GetUsername()
+                .Text;
+            Assert.AreEqual(username, name);
+        }
+        public void VerifyThatAccountDeletedIsVisibleAndClickContinueButton()
+        {
+            string accountDeletedText = new LoggedHomePage(GetDriver())
+                .DeleteAccountButtonClick()
+                .GetAccountDeleted()
+                .Text;
+            Assert.AreEqual(accountDeletedText, "ACCOUNT DELETED!");
+
         }
 
 
