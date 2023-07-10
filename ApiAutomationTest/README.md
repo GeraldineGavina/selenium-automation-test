@@ -12,14 +12,14 @@
 
 ## How to use the project
 	1. Open Visual Studio and click "Clone Repository". 
-	2. Enter the link <> as the repository location. 
+	2. Enter the link https://github.com/GeraldineGavina/selenium-automation-test as the repository location. 
 	3. Click Clone button
 	4. Install Chrome Adblocker extension to prevent ads https://chrome.google.com/webstore/detail/adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom
-	5. Find the location where the adblocker extension and provide the path in Utils Folder>BrowserManager.cs pathExtension variable.
+	5. Find the location where the adblocker extension is installed and provide the path in Utils Folder>BrowserManager.cs pathExtension variable.
 	6. Click Test Menu > Run All Test
 
 ## Available Test
-	• ### Test Case 1: Register User
+### Test Case 1: Register User
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -39,7 +39,7 @@
 	17. Click 'Delete Account' button
 	18. Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
 	
-	• ### Test Case 2: Login User with correct email and password
+### Test Case 2: Login User with correct email and password
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -51,7 +51,7 @@
 	9. Click 'Delete Account' button
 	10. Verify that 'ACCOUNT DELETED!' is visible
 	
-	• ### Test Case 3: Login User with incorrect email and password
+### Test Case 3: Login User with incorrect email and password
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -61,7 +61,7 @@
 	7. Click 'login' button
 	8. Verify error 'Your email or password is incorrect!' is visible
 
-	• ### Test Case 4: Logout User
+### Test Case 4: Logout User
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -73,7 +73,7 @@
 	9. Click 'Logout' button
 	10. Verify that user is navigated to login page
 	
-	• ### Test Case 5: Register User with existing email
+### Test Case 5: Register User with existing email
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -83,7 +83,7 @@
 	7. Click 'Signup' button
 	8. Verify error 'Email Address already exist!' is visible
 	
-	• ### Test Case 6: Contact Us Form
+### Test Case 6: Contact Us Form
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
@@ -96,14 +96,14 @@
 	10. Verify success message 'Success! Your details have been submitted successfully.' is visible
 	11. Click 'Home' button and verify that landed to home page successfully
 	
-	• ### Test Case 7: Verify Test Cases Page
+### Test Case 7: Verify Test Cases Page
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
 	4. Click on 'Test Cases' button
 	5. Verify user is navigated to test cases page successfully
 	
-	• ### Test Case 8: Verify All Products and product detail page
+### Test Case 8: Verify All Products and product detail page
 	1. Launch browser
 	2. Navigate to url 'http://automationexercise.com'
 	3. Verify that home page is visible successfully
