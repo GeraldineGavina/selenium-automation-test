@@ -51,7 +51,8 @@ namespace SeleniumAutomationTest.Tests
         [TearDown]
         public void TearDown()
         {
-            //GetDriver().Quit();
+            Thread.Sleep(1000);
+            GetDriver().Quit();
             //TDriver.Dispose();
         }
     }

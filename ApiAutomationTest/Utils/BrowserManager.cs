@@ -9,21 +9,18 @@ namespace SeleniumAutomationTest.Utils
     {
         public static IWebDriver DoBrowserSetup()
         {
-            IWebDriver driver = null;
-            //string browserName = ConfigurationManager.ConnectionStrings["browserName"].ConnectionString;
-            
+            IWebDriver driver = null;         
             string name = "Chrome";
             if (name.Equals("Chrome", StringComparison.OrdinalIgnoreCase))
             {
-                //string pathExtension = ConfigurationManager.AppSettings["adBlock"].ToString();
-                string pathExtension = "C:\\Users\\jtmartinez\\AppData\\Local\\Google\\Chrome\\User Data\\Default\\Extensions\\gighmmpiobklfepjocnamgkkbiglidom\\5.8.0_0";
-                //Console.WriteLine(">>>>>>>>>>>>>>>>>>>> "+browserName);
+                //Provide your chrome extension path here
+                string pathExtension = "C:\\Users\\Staff\\AppData\\Local\\Google\\Chrome\\User Data\\Profile 2\\Extensions\\gighmmpiobklfepjocnamgkkbiglidom\\5.8.0_0";
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.AddArgument("load-extension=" + pathExtension);
                 /*chromeOptions.AddArgument("--headless");
                 chromeOptions.AddArgument("--silent");*/
                 driver = new ChromeDriver(chromeOptions);
-                Thread.Sleep(1000);
+                Thread.Sleep(1500);
 
             }
             else if (name.Equals("Firefox", StringComparison.OrdinalIgnoreCase))

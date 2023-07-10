@@ -55,11 +55,13 @@ namespace SeleniumAutomationTest.Pages
 
         public ContactUsPage FillUpForm()
         {
+            string workingDirectory = Environment.CurrentDirectory;
             nameInput.SendKeys("estName");
             emailInput.SendKeys("abc@def.ghi");
             subjectInput.SendKeys("Test Subject Here");
             messageInput.SendKeys("Maganda naman sya ok lang matagal lang madeliver muntik pa nga ireturn sa seller buti na lang kinulit ko rider naligaw pa nga papunta samin. Seller is responsive. Well packed with bubble wrap and box. Will Order again. Fast Delivery. Will Order again. Salamat Shapi!");
-            uploadFileInput.SendKeys("C:\\Users\\Staff\\source\\repos\\POMSelenium\\TestFiles");
+            
+            uploadFileInput.SendKeys(Directory.GetParent(workingDirectory).Parent.Parent.FullName +"\\testFiles");
             return this;
 
         }

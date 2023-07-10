@@ -13,6 +13,7 @@ namespace SeleniumAutomationTest.Tests
         [Test]
         public void ContactUsForm()
         {
+
             testCase2.VerifyHomePageIsVisible();
             VerifyGetInTouchIsVisible();
             VerifySuccessMessageIsVisible();

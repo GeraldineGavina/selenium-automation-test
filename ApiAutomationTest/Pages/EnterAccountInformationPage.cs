@@ -107,7 +107,7 @@ namespace SeleniumAutomationTest.Pages
             lastNameInput.SendKeys("lastname");
             companyInput.SendKeys("company");
             address1Input.SendKeys("address1");
-            address1Input.SendKeys("address2");
+            address2Input.SendKeys("address2");
             SelectElement country = new SelectElement(countrySelect);
             country.SelectByValue("Canada");
             stateInput.SendKeys("state");
