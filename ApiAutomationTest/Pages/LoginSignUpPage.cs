@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using System.IO;
 using SeleniumAutomationTest.Data;
 using SeleniumAutomationTest.Utils;
+using System.Xml.Linq;
 
 namespace SeleniumAutomationTest.Pages
 {
@@ -45,6 +46,10 @@ namespace SeleniumAutomationTest.Pages
         private IWebElement errorLoginTxt;
 
         string jsonPath = "..\\..\\..\\Data\\user.json";
+
+        [FindsBy(How = How.XPath, Using = "//section/div/div/div[3]/div/form/p")]
+        private IWebElement emailAddressAlreadyExist;
+
         public LoginSignUpPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
@@ -99,6 +104,20 @@ namespace SeleniumAutomationTest.Pages
         public IWebElement GetErrorLogin()
         {
             return errorLoginTxt;
+        }
+
+        public LoginSignUpPage FillIncorrectSignUp(string name, string email)
+        {
+            signUpNameInput.SendKeys(name);
+            signUpEmailInput.SendKeys(email);
+            signUpButton.Click();
+            return this;
+
+        }
+
+        public IWebElement GetEmailAddressAlreadyExist()
+        {
+            return emailAddressAlreadyExist;
         }
     }
 }
