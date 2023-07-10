@@ -38,7 +38,7 @@ namespace SeleniumAutomationTest.Tests
             {
                 if (windowHandle != currentWindowHandle)
                 {
-                    
+
                     driver.SwitchTo().Window(windowHandle);
                     driver.Close();
 

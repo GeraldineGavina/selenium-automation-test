@@ -8,6 +8,8 @@ using SeleniumAutomationTest.Tests;
 using SeleniumAutomationTest.Utils;
 using SeleniumExtras.PageObjects;
 using OpenQA.Selenium.Support.UI;
+using SeleniumAutomationTest.Data;
+
 namespace SeleniumAutomationTest.Pages
 {
     public class EnterAccountInformationPage 
@@ -86,8 +88,12 @@ namespace SeleniumAutomationTest.Pages
 
         public AccountCreatedPage FillAccountDetails()
         {
+            string jsonPath = "..\\..\\..\\Data\\user.json";
             string password = "pass" + Util.GenerateCurrentDateAndTime();
             titleRadioButton.Click();
+            UserSignUp userSignUp = JSONUtil.ReadFromJsonFile<UserSignUp>(jsonPath);
+            userSignUp.password = password;
+            JSONUtil.WriteObjectToJsonFile(userSignUp, jsonPath);
             passwordInput.SendKeys(password);
             SelectElement days = new SelectElement(daysSelect);
             days.SelectByValue("1");

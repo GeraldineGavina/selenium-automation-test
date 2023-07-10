@@ -32,6 +32,19 @@ namespace SeleniumAutomationTest.Pages
         [FindsBy(How = How.CssSelector, Using = "button[data-qa='signup-button']")]
         private IWebElement signUpButton;
 
+        [FindsBy(How = How.CssSelector, Using = "input[data-qa='login-email']")]
+        private IWebElement loginEmailInput;
+
+        [FindsBy(How = How.CssSelector, Using = "input[data-qa='login-password']")]
+        private IWebElement loginPasswordInput;
+
+        [FindsBy(How = How.CssSelector, Using = "button[data-qa='login-button']")]
+        private IWebElement loginButton;
+
+        [FindsBy(How = How.XPath, Using = "/html/body/section/div/div/div[1]/div/form/p")]
+        private IWebElement errorLoginTxt;
+
+        string jsonPath = "..\\..\\..\\Data\\user.json";
         public LoginSignUpPage(IWebDriver driver)
         {
             PageFactory.InitElements(driver, this);
@@ -60,9 +73,32 @@ namespace SeleniumAutomationTest.Pages
             UserSignUp newUser = new UserSignUp();
             newUser.email = email;
             newUser.name = name;
-            string filePath = "..\\..\\..\\Data\\user.json";
-            JSONUtil.WriteObjectToJsonFile(newUser, filePath);
+            JSONUtil.WriteObjectToJsonFile(newUser, jsonPath);
             return new EnterAccountInformationPage(driver);
+        }
+
+        public LoggedHomePage FillCorrectLogin(string email, string password)
+        {
+            FillLogin(email, password);
+            return new LoggedHomePage(driver);
+        }
+
+        private void FillLogin(String email, String password)
+        {
+            loginEmailInput.SendKeys(email);
+            loginPasswordInput.SendKeys(password);
+            loginButton.Click();
+        }
+        public LoginSignUpPage FillIncorrectLogin()
+        {
+            loginEmailInput.SendKeys("email"+Util.GenerateCurrentDateAndTime()+"@incorrect.com");
+            loginPasswordInput.SendKeys("pass"+Util.GenerateCurrentDateAndTime());
+            loginButton.Click();
+            return this;
+        }
+        public IWebElement GetErrorLogin()
+        {
+            return errorLoginTxt;
         }
     }
 }

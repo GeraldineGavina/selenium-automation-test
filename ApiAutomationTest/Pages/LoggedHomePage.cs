@@ -35,7 +35,7 @@ namespace SeleniumAutomationTest.Pages
 
         public IWebElement LogoutButton()
         {
-            return username;
+            return logoutButton;
         }
         
         public AccountDeletedPage DeleteAccountButtonClick()

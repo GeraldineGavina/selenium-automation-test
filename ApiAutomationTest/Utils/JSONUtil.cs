@@ -18,5 +18,11 @@ namespace SeleniumAutomationTest.Utils
             string json = JsonConvert.SerializeObject(obj, Formatting.Indented);
             File.WriteAllText(filePath, json);
         }
+
+        public static T ReadFromJsonFile<T>(string filePath)
+        {
+            string json = File.ReadAllText(filePath);
+            return JsonConvert.DeserializeObject<T>(json);
+        }
     }
 }

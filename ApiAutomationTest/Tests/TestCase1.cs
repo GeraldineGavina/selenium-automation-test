@@ -64,13 +64,14 @@ namespace SeleniumAutomationTest.Tests
               
         }
 
-        public void VerifyThatLoggedInAsUsernameIsVisible()
+        public LoggedHomePage VerifyThatLoggedInAsUsernameIsVisible()
         {
             string username = new AccountCreatedPage(GetDriver())
                 .ContinueButtonClick()
                 .GetUsername()
                 .Text;
             Assert.AreEqual(username, name);
+            return new LoggedHomePage(GetDriver());
         }
         public void VerifyThatAccountDeletedIsVisibleAndClickContinueButton()
         {
@@ -79,7 +80,6 @@ namespace SeleniumAutomationTest.Tests
                 .GetAccountDeleted()
                 .Text;
             Assert.AreEqual(accountDeletedText, "ACCOUNT DELETED!");
-
         }
 
 
